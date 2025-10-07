@@ -1,6 +1,7 @@
-import { ShippingFormInputs, shippingFormSchema } from "@/types";
+import { PaymentFormInputs, paymentFormSchema } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ShoppingCart } from "lucide-react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
 
@@ -9,101 +10,92 @@ const PaymentForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<ShippingFormInputs>({
-    resolver: zodResolver(shippingFormSchema),
+  } = useForm<PaymentFormInputs>({
+    resolver: zodResolver(paymentFormSchema),
   });
-  const router = useRouter()
 
-  const handlePaymentForm: SubmitHandler<ShippingFormInputs> = (data) => {
+  const router = useRouter();
 
+  const handlePaymentForm: SubmitHandler<PaymentFormInputs> = (data) => {
+    
   };
 
   return (
     <form
-      onSubmit={handleSubmit(handlePaymentForm)}
       className="flex flex-col gap-4"
+      onSubmit={handleSubmit(handlePaymentForm)}
     >
       <div className="flex flex-col gap-1">
-        <label className="text-xs text-gray-500 font-medium" htmlFor="name">
-          Name
+        <label htmlFor="cardHolder" className="text-xs text-gray-500 font-medium">
+          Name on card
         </label>
         <input
+          className="border-b border-gray-200 py-2 outline-none text-sm"
           type="text"
+          id="cardHolder"
           placeholder="John Doe"
-          id="name"
-          {...register("name")}
-          className="border-b border-gray-200 outline-none py-2 text-sm"
+          {...register("cardHolder")}
         />
-        {errors.name && (
-          <p className="text-xs text-red-500">{errors.name.message}</p>
+        {errors.cardHolder && (
+          <p className="text-xs text-red-500">{errors.cardHolder.message}</p>
         )}
       </div>
       <div className="flex flex-col gap-1">
-        <label className="text-xs text-gray-500 font-medium" htmlFor="name">
-          Email
+        <label htmlFor="cardNumber" className="text-xs text-gray-500 font-medium">
+          Card Number
         </label>
         <input
-          type="email"
-          placeholder="johndoe@example.com"
-          id="email"
-          {...register("email")}
-          className="border-b border-gray-200 outline-none py-2 text-sm"
+          className="border-b border-gray-200 py-2 outline-none text-sm"
+          type="text"
+          id="cardNumber"
+          placeholder="123456789123"
+          {...register("cardNumber")}
         />
-        {errors.email && (
-          <p className="text-xs text-red-500">{errors.email.message}</p>
+        {errors.cardNumber && (
+          <p className="text-xs text-red-500">{errors.cardNumber.message}</p>
         )}
       </div>
       <div className="flex flex-col gap-1">
-        <label className="text-xs text-gray-500 font-medium" htmlFor="name">
-          Phone
+        <label htmlFor="expirationDate" className="text-xs text-gray-500 font-medium">
+          Expiration Date
         </label>
         <input
-          type="phone"
-          placeholder="+1-(456)-789-455"
-          id="phone"
-          {...register("phone")}
-          className="border-b border-gray-200 outline-none py-2 text-sm"
+          className="border-b border-gray-200 py-2 outline-none text-sm"
+          type="text"
+          id="expirationDate"
+          placeholder="01/32"
+          {...register("expirationDate")}
         />
-        {errors.phone && (
-          <p className="text-xs text-red-500">{errors.phone.message}</p>
+        {errors.expirationDate && (
+          <p className="text-xs text-red-500">{errors.expirationDate.message}</p>
         )}
       </div>
       <div className="flex flex-col gap-1">
-        <label className="text-xs text-gray-500 font-medium" htmlFor="name">
-          Address
+        <label htmlFor="cvv" className="text-xs text-gray-500 font-medium">
+          CVV
         </label>
         <input
-          type="address"
-          placeholder="123 Main st, Oakland"
-          id="address"
-          {...register("address")}
-          className="border-b border-gray-200 outline-none py-2 text-sm"
+          className="border-b border-gray-200 py-2 outline-none text-sm"
+          type="text"
+          id="cvv"
+          placeholder="123"
+          {...register("cvv")}
         />
-        {errors.address && (
-          <p className="text-xs text-red-500">{errors.address.message}</p>
+        {errors.cvv && (
+          <p className="text-xs text-red-500">{errors.cvv.message}</p>
         )}
       </div>
-      <div className="flex flex-col gap-1">
-        <label className="text-xs text-gray-500 font-medium" htmlFor="name">
-          City
-        </label>
-        <input
-          type="city"
-          placeholder="Washington"
-          id="city"
-          {...register("city")}
-          className="border-b border-gray-200 outline-none py-2 text-sm"
-        />
-        {errors.city && (
-          <p className="text-xs text-red-500">{errors.city.message}</p>
-        )}
+      <div className='flex items-center gap-2 mt-4'>
+        <Image src="/klarna.png" alt="klarna" width={50} height={25} className="rounded-md"/>
+        <Image src="/cards.png" alt="cards" width={50} height={25} className="rounded-md"/>
+        <Image src="/stripe.png" alt="stripe" width={50} height={25} className="rounded-md"/>
       </div>
       <button
         type="submit"
-        className="w-full bg-gray-800 text-white p-2 rounded-lg cursor-pointer flex items-center justify-center gap-2 hover:bg-gray-900 transition-all duration-300"
+        className="w-full bg-gray-800 hover:bg-gray-900 transition-all duration-300 text-white p-2 rounded-lg cursor-pointer flex items-center justify-center gap-2"
       >
-        Continue
-        <ArrowRight className="w-3 h-3" />
+        Checkout
+        <ShoppingCart className="w-3 h-3" />
       </button>
     </form>
   );
