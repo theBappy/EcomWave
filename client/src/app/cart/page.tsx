@@ -2,7 +2,8 @@
 
 import PaymentForm from "@/components/payment-form";
 import ShippingForm from "@/components/shipping-form";
-import { cartItems } from "@/data/cart-items";
+import useCartStore from "@/stores/cart-store";
+import { ShippingFormInputs } from "@/types";
 import { ArrowRight, Trash2 } from "lucide-react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -27,7 +28,9 @@ const CartPage = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const activeStep = parseInt(searchParams.get("step") || "1");
-  const [shippingForm, setShippingForm] = useState(null);
+  const [shippingForm, setShippingForm] = useState<ShippingFormInputs>();
+
+  const { cart, removeFromCart } = useCartStore();
 
   return (
     <div className="flex flex-col gap-8 items-center justify-center mt-12">
@@ -63,8 +66,11 @@ const CartPage = () => {
         {/* steps */}
         <div className="w-full lg:w-7/12 shadow-lg border-gray-100 p-8 rounded-lg flex flex-col gap-8">
           {activeStep === 1 ? (
-            cartItems.map((item) => (
-              <div className="flex items-center justify-between" key={item.id}>
+            cart.map((item) => (
+              <div
+                className="flex items-center justify-between"
+                key={item.id + item.selectedSize + item.selectedColor}
+              >
                 {/* image and details */}
                 <div className="flex gap-8">
                   <div className="relative w-32 h-32 bg-gray-50 rounded-lg overflow-hidden">
@@ -92,7 +98,10 @@ const CartPage = () => {
                   </div>
                 </div>
                 {/* delete button */}
-                <button className="w-8 h-8 rounded-full bg-red-100 text-red-400 flex items-center justify-center cursor-pointer hover:bg-red-200 transition-all duration-300">
+                <button
+                  onClick={() => removeFromCart(item)}
+                  className="w-8 h-8 rounded-full bg-red-100 text-red-400 flex items-center justify-center cursor-pointer hover:bg-red-200 transition-all duration-300"
+                >
                   <Trash2 className="w-3 h-3" />
                 </button>
               </div>
@@ -115,7 +124,7 @@ const CartPage = () => {
               <p className="text-gray-500">Subtotal</p>
               <p className="font-medium">
                 $
-                {cartItems
+                {cart
                   .reduce((acc, item) => acc + item.price * item.quantity, 0)
                   .toFixed(2)}
               </p>
@@ -133,7 +142,7 @@ const CartPage = () => {
               <p className="text-gray-800 font-semibold">Total</p>
               <p className="font-medium">
                 $
-                {cartItems
+                {cart
                   .reduce((acc, item) => acc + item.price * item.quantity, 0)
                   .toFixed(2)}
               </p>
