@@ -1,6 +1,5 @@
 "use client";
 
-
 import useCartStore from "@/stores/cart-store";
 import { ProductType } from "@/types";
 import { Minus, Plus, ShoppingCart } from "lucide-react";
@@ -47,7 +46,7 @@ const ProductInteractions = ({
       selectedColor,
       selectedSize,
     });
-    toast.success("Product added to cart")
+    toast.success("Product added to cart successfully");
   };
   return (
     <div className="flex flex-col gap-4 mt-4">
@@ -122,7 +121,7 @@ const ProductInteractions = ({
       </button>
       <button className="ring-1 ring-gray-400 shadow-lg text-gray-800 px-4 py-2 rounded-md flex items-center justify-center cursor-pointer gap-2 text-sm font-medium">
         <ShoppingCart className="w-4 h-4" />
-        Buy this Item
+        Buy Now
       </button>
     </div>
   );
