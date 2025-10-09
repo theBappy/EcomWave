@@ -20,8 +20,8 @@ const Categories = () => {
       {categories.map((category) => (
         <div
           key={category.name}
-          className={`flex items-center justify-center gap-2 cursor-pointer px-2 py-1 rounded-md ${
-            category.slug === selectedCategory ? "bg-white" : "text-gray-500"
+          className={`flex items-center justify-center gap-2 cursor-pointer px-2 py-1 rounded-md text-gray-800 ${
+            category.slug === selectedCategory ? "bg-background text-primary" : "text-foreground"
           }`}
           onClick={() => handleChange(category.slug)}
         >

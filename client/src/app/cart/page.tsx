@@ -45,15 +45,15 @@ const CartPage = () => {
             key={step.id}
           >
             <div
-              className={`w-6 h-6 rounded-full text-white p-4 flex items-center justify-center ${
-                step.id === activeStep ? "bg-gray-800" : "bg-gray-400"
+              className={`w-6 h-6 rounded-full text-foreground p-4 flex items-center justify-center ${
+                step.id === activeStep ? "bg-backrgound" : "bg-gray-400"
               }`}
             >
               {step.id}
             </div>
             <p
               className={`text-sm font-medium ${
-                step.id === activeStep ? "text-gray-800" : "text-gray-400"
+                step.id === activeStep ? "text-primary" : "text-gray-400"
               }`}
             >
               {step.title}
@@ -83,14 +83,14 @@ const CartPage = () => {
                   </div>
                   <div className="flex flex-col justify-between">
                     <div className="flex flex-col gap-1">
-                      <p className="text-sm font-medium">{item.name}</p>
-                      <p className="text-xs text-gray-500">
+                      <p className="text-sm font-medium text-primary">{item.name}</p>
+                      <p className="text-xs text-foreground">
                         Quantity: {item.quantity}
                       </p>
-                      <p className="text-xs text-gray-500">
+                      <p className="text-xs text-foreground">
                         Size: {item.selectedSize}
                       </p>
-                      <p className="text-xs text-gray-500">
+                      <p className="text-xs text-foreground">
                         Color: {item.selectedColor}
                       </p>
                     </div>
@@ -100,7 +100,7 @@ const CartPage = () => {
                 {/* delete button */}
                 <button
                   onClick={() => removeFromCart(item)}
-                  className="w-8 h-8 rounded-full bg-red-100 text-red-400 flex items-center justify-center cursor-pointer hover:bg-red-200 transition-all duration-300"
+                  className="w-8 h-8 rounded-full bg-white text-red-600 flex items-center justify-center cursor-pointer hover:bg-red-100 transition-all duration-300"
                 >
                   <Trash2 className="w-3 h-3" />
                 </button>
@@ -118,10 +118,10 @@ const CartPage = () => {
         </div>
         {/* details */}
         <div className="w-full lg:w-5/12 shadow-lg border-gray-100 p-8 rounded-lg flex flex-col gap-8 h-max">
-          <h2 className="font-semibold">Cart Details</h2>
+          <h2 className="font-semibold text-primary">Cart Details</h2>
           <div className="flex flex-col gap-4">
             <div className="flex justify-between text-sm">
-              <p className="text-gray-500">Subtotal</p>
+              <p className="text-foreground">Subtotal</p>
               <p className="font-medium">
                 $
                 {cart
@@ -130,17 +130,17 @@ const CartPage = () => {
               </p>
             </div>
             <div className="flex justify-between text-sm">
-              <p className="text-gray-500">Discount(10%)</p>
+              <p className="text-foreground">Discount(10%)</p>
               <p className="font-medium">$10</p>
             </div>
             <div className="flex justify-between text-sm">
-              <p className="text-gray-500">Shipping Fee</p>
+              <p className="text-foreground">Shipping Fee</p>
               <p className="font-medium">$10</p>
             </div>
             <hr className="border-gray-20" />
             <div className="flex justify-between">
-              <p className="text-gray-800 font-semibold">Total</p>
-              <p className="font-medium">
+              <p className="text-primary font-semibold">Total</p>
+              <p className="font-medium text-primary">
                 $
                 {cart
                   .reduce((acc, item) => acc + item.price * item.quantity, 0)
@@ -151,7 +151,7 @@ const CartPage = () => {
           {activeStep === 1 && (
             <button
               onClick={() => router.push("/cart?step=2", { scroll: false })}
-              className="w-full bg-gray-800 text-white p-2 rounded-lg cursor-pointer flex items-center justify-center gap-2 hover:bg-gray-900 transition-all duration-300"
+              className="w-full bg-gray-800 text-foreground p-2 rounded-lg cursor-pointer flex items-center justify-center gap-2 hover:bg-gray-900 transition-all duration-300"
             >
               Continue
               <ArrowRight className="w-3 h-3" />

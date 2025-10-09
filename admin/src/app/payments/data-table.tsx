@@ -53,7 +53,7 @@ export function DataTable<TData, TValue>({
     <div className="rounded-md border">
       {Object.keys(rowSelection).length > 0 && (
         <div className="flex justify-end">
-          <button className="flex items-center gap-2 bg-red-500 text-white px-2 py-1 text-sm rounded-md m-4 cursor-pointer">
+          <button className="flex items-center gap-2 bg-red-500 text-foreground px-2 py-1 text-sm rounded-md m-4 cursor-pointer">
             <Trash2 className="w-4 h-4"/>
             Delete Payment(s)
           </button>

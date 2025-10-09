@@ -13,7 +13,7 @@ const Filters = () => {
   };
 
   return (
-    <div className="flex items-center justify-end gap-2 text-sm text-gray-500 my-6">
+    <div className="flex items-center justify-end gap-2 text-sm text-primary my-6">
       <span className="">Sort by:</span>
       <select
         name="sort"
@@ -21,10 +21,10 @@ const Filters = () => {
         className="ring ring-gray-200 shadow-md p-1 rounded-sm"
         onChange={(e) => handleFilter(e.target.value)}
       >
-        <option value="newest">Newest</option>
-        <option value="oldest">Oldest</option>
-        <option value="asc">Price:Low to High</option>
-        <option value="desc">Price:High to Low</option>
+        <option className="text-gray-600" value="newest">Newest</option>
+        <option className="text-gray-600" value="oldest">Oldest</option>
+        <option className="text-gray-600" value="asc">Price:Low to High</option>
+        <option className="text-gray-600" value="desc">Price:High to Low</option>
       </select>
     </div>
   );

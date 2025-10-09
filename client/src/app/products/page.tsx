@@ -7,7 +7,7 @@ const ProductsPage = async ({
 }) => {
   const category = (await searchParams).category;
   return (
-    <div>
+    <div className="mt-10">
       <ProductsList params="products" category={category} />
     </div>
   );

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Bell, Home } from "lucide-react";
 import SearchBar from "./search-bar";
 import ShoppingCartIcon from "./shopping-cart-icon";
+import { ThemeToggle } from "./theme-toggle";
 
 const Navbar = () => {
   return (
@@ -10,23 +11,24 @@ const Navbar = () => {
       {/* LEFT */}
       <Link href="/" className="flex items-center">
         <Image
-          src="/logo.png"
-          alt="TrendLama"
+          src="/logo.svg"
+          alt="ecom-wave"
           width={36}
           height={36}
           className="w-6 h-6 md:w-9 md:h-9"
         />
-        <p className="hidden md:block text-md font-medium tracking-wider">
+        <p className="hidden md:block text-[#ff7817] text-md font-medium tracking-wider">
           ECOMWAVE.
         </p>
       </Link>
       {/* RIGHT */}
       <div className="flex items-center gap-6">
         <SearchBar />
+        <ThemeToggle />
         <Link href="/">
-          <Home className="w-4 h-4 text-gray-600"/>
+          <Home className="w-4 h-4 text-foreground"/>
         </Link>
-        <Bell className="w-4 h-4 text-gray-600"/>
+        <Bell className="w-4 h-4 text-foreground"/>
         <ShoppingCartIcon />
         <Link href="/login">Sign in</Link>
       </div>

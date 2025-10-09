@@ -52,7 +52,7 @@ const ProductInteractions = ({
     <div className="flex flex-col gap-4 mt-4">
       {/* SIZE */}
       <div className="flex flex-col gap-2 text-xs">
-        <span className="text-gray-500">Size</span>
+        <span className="text-primary">Size</span>
         <div className="flex items-center gap-2">
           {product.sizes.map((size) => (
             <div
@@ -65,7 +65,7 @@ const ProductInteractions = ({
               <div
                 className={`w-6 h-6 text-center flex items-center justify-center ${
                   selectedSize === size
-                    ? "bg-black text-white"
+                    ? "bg-black text-primary"
                     : "bg-white text-black"
                 }`}
               >
@@ -77,7 +77,7 @@ const ProductInteractions = ({
       </div>
       {/* COLOR */}
       <div className="flex flex-col gap-2 text-sm">
-        <span className="text-gray-500">Color</span>
+        <span className="text-primary">Color</span>
         <div className="flex items-center gap-2">
           {product.colors.map((color) => (
             <div
@@ -94,7 +94,7 @@ const ProductInteractions = ({
       </div>
       {/* QUANTITY */}
       <div className="flex flex-col gap-2 text-sm">
-        <span className="text-gray-500">Quantity</span>
+        <span className="text-primary">Quantity</span>
         <div className="flex items-center gap-2">
           <button
             className="cursor-pointer border-1 border-gray-300 p-1"
@@ -114,12 +114,12 @@ const ProductInteractions = ({
       {/* BUTTONS */}
       <button
         onClick={handleAddToCart}
-        className="bg-gray-800 text-white px-4 py-2 rounded-md shadow-lg flex items-center justify-center gap-2 cursor-pointer text-sm font-medium"
+        className="bg-gray-800 text-foreground px-4 py-2 rounded-md shadow-lg flex items-center justify-center gap-2 cursor-pointer text-sm font-medium"
       >
         <Plus className="w-4 h-4" />
         Add to Cart
       </button>
-      <button className="ring-1 ring-gray-400 shadow-lg text-gray-800 px-4 py-2 rounded-md flex items-center justify-center cursor-pointer gap-2 text-sm font-medium">
+      <button className="ring-1 ring-gray-400 shadow-lg text-primary px-4 py-2 rounded-md flex items-center justify-center cursor-pointer gap-2 text-sm font-medium">
         <ShoppingCart className="w-4 h-4" />
         Buy Now
       </button>

@@ -18,7 +18,7 @@ const ProductsList = ({category, params}: {category:string, params: "homepage" |
         ))}
       </div>
       <Link href={category ? `/product/?category=${category}}` : "/products"}
-      className="flex justify-end mt-4 underline text-sm text-gray-500"
+      className="flex justify-end mt-4 underline text-sm text-primary"
       >
         View all products
       </Link>

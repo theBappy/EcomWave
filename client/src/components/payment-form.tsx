@@ -26,7 +26,7 @@ const PaymentForm = () => {
       onSubmit={handleSubmit(handlePaymentForm)}
     >
       <div className="flex flex-col gap-1">
-        <label htmlFor="cardHolder" className="text-xs text-gray-500 font-medium">
+        <label htmlFor="cardHolder" className="text-xs text-primary font-medium">
           Name on card
         </label>
         <input
@@ -41,7 +41,7 @@ const PaymentForm = () => {
         )}
       </div>
       <div className="flex flex-col gap-1">
-        <label htmlFor="cardNumber" className="text-xs text-gray-500 font-medium">
+        <label htmlFor="cardNumber" className="text-xs text-primary font-medium">
           Card Number
         </label>
         <input
@@ -56,7 +56,7 @@ const PaymentForm = () => {
         )}
       </div>
       <div className="flex flex-col gap-1">
-        <label htmlFor="expirationDate" className="text-xs text-gray-500 font-medium">
+        <label htmlFor="expirationDate" className="text-xs text-primary font-medium">
           Expiration Date
         </label>
         <input
@@ -71,7 +71,7 @@ const PaymentForm = () => {
         )}
       </div>
       <div className="flex flex-col gap-1">
-        <label htmlFor="cvv" className="text-xs text-gray-500 font-medium">
+        <label htmlFor="cvv" className="text-xs text-primary font-medium">
           CVV
         </label>
         <input
@@ -92,7 +92,7 @@ const PaymentForm = () => {
       </div>
       <button
         type="submit"
-        className="w-full bg-gray-800 hover:bg-gray-900 transition-all duration-300 text-white p-2 rounded-lg cursor-pointer flex items-center justify-center gap-2"
+        className="w-full bg-gray-800 hover:bg-gray-900 transition-all duration-300 text-foreground p-2 rounded-lg cursor-pointer flex items-center justify-center gap-2"
       >
         Checkout
         <ShoppingCart className="w-3 h-3" />

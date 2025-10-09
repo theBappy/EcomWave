@@ -44,7 +44,7 @@ const ShippingForm = ({
         )}
       </div>
       <div className="flex flex-col gap-1">
-        <label className="text-xs text-gray-500 font-medium" htmlFor="name">
+        <label className="text-xs text-primary font-medium" htmlFor="name">
           Email
         </label>
         <input
@@ -59,7 +59,7 @@ const ShippingForm = ({
         )}
       </div>
       <div className="flex flex-col gap-1">
-        <label className="text-xs text-gray-500 font-medium" htmlFor="name">
+        <label className="text-xs text-primary font-medium" htmlFor="name">
           Phone
         </label>
         <input
@@ -74,7 +74,7 @@ const ShippingForm = ({
         )}
       </div>
       <div className="flex flex-col gap-1">
-        <label className="text-xs text-gray-500 font-medium" htmlFor="name">
+        <label className="text-xs text-primary font-medium" htmlFor="name">
           Address
         </label>
         <input
@@ -89,7 +89,7 @@ const ShippingForm = ({
         )}
       </div>
       <div className="flex flex-col gap-1">
-        <label className="text-xs text-gray-500 font-medium" htmlFor="name">
+        <label className="text-xs text-primary font-medium" htmlFor="name">
           City
         </label>
         <input
@@ -105,7 +105,7 @@ const ShippingForm = ({
       </div>
       <button
         type="submit"
-        className="w-full bg-gray-800 text-white p-2 rounded-lg cursor-pointer flex items-center justify-center gap-2 hover:bg-gray-900 transition-all duration-300"
+        className="w-full bg-background text-foreground p-2 rounded-lg cursor-pointer flex items-center justify-center gap-2 hover:bg-gray-900 transition-all duration-300"
       >
         Continue
         <ArrowRight className="w-3 h-3" />

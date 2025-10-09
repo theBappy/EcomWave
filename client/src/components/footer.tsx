@@ -7,13 +7,13 @@ const Footer = () => {
       <div className="flex flex-col gap-4 items-center md:items-start">
         <Link href="/" className="flex items-center">
           <Image
-            src="/logo.png"
+            src="/logo.svg"
             alt="ecomwave"
             width={36}
             height={36}
             className="w-6 h-6 md:w-9 md:h-9"
           />
-          <p className="text-md font-medium tracking-wider hidden md:block text-white">
+          <p className="text-md font-medium tracking-wider hidden md:block text-[#ff7917] dark:text-[#ff7917]">
             ECOMWAVE.
           </p>
         </Link>

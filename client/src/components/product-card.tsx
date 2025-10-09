@@ -51,13 +51,13 @@ const ProductCard = ({ product }: { product: ProductType }) => {
       </Link>
       {/* product details */}
       <div className="flex flex-col gap-4 p-4">
-        <h1 className="font-medium">{product.name}</h1>
-        <p className="text-sm text-gray-500">{product.shortDescription}</p>
+        <h1 className="font-medium text-primary">{product.name}</h1>
+        <p className="text-sm text-foreground">{product.shortDescription}</p>
         {/* product types */}
         <div className="flex items-center gap-4 text-xs">
           {/* sizes */}
           <div className="flex flex-col gap-1">
-            <span className="text-gray-500">Size</span>
+            <span className="text-foreground">Size</span>
             <select
               onChange={(e) =>
                 handleProductType({ type: "size", value: e.target.value })
@@ -67,7 +67,7 @@ const ProductCard = ({ product }: { product: ProductType }) => {
               id="size"
             >
               {product.sizes.map((size) => (
-                <option key={size} value={size}>
+                <option className='text-black' key={size} value={size}>
                   {size.toUpperCase()}
                 </option>
               ))}
@@ -75,7 +75,7 @@ const ProductCard = ({ product }: { product: ProductType }) => {
           </div>
           {/* colors */}
           <div className="flex flex-col gap-1">
-            <span className="text-gray-500">Color</span>
+            <span className="text-foreground">Color</span>
             <div className="flex items-center gap-2">
               {product.colors.map((color) => (
                 <div
@@ -102,10 +102,10 @@ const ProductCard = ({ product }: { product: ProductType }) => {
         </div>
         {/* price and add to cart button */}
         <div className="flex items-center justify-between">
-          <p className="font-medium">${product.price.toFixed(2)}</p>
+          <p className="font-medium text-primary">${product.price.toFixed(2)}</p>
           <button 
           onClick={handleAddToCart}
-          className="ring ring-gray-200 shadow-lg rounded-md px-2 py-1 text-sm cursor-pointer hover:text-white hover:bg-black transition-all duration-300 flex items-center gap-2">
+          className="ring ring-gray-200 shadow-lg rounded-md px-2 py-1 text-sm cursor-pointer hover:text-gray-800 hover:bg-foreground transition-all duration-300 flex items-center gap-2">
             <ShoppingCart className="w-4 h-4" />
             Add to Cart
           </button>
